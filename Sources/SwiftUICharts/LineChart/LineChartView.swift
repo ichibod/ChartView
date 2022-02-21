@@ -1,5 +1,6 @@
 //
 //  LineCard.swift
+//  LineChart.swift
 //  LineChart
 //
 //  Created by András Samu on 2019. 08. 31..
@@ -113,6 +114,7 @@ public struct LineChartView: View {
                 .offset(x: 0, y: 0)
             }.frame(width: self.formSize.width, height: self.formSize.height)
         }
+        #if !os(tvOS)
         .gesture(DragGesture()
         .onChanged({ value in
             self.touchLocation = value.location
@@ -123,6 +125,7 @@ public struct LineChartView: View {
                 self.showIndicatorDot = false
             })
         )
+        #endif
     }
     
     @discardableResult func getClosestDataPoint(toPoint: CGPoint, width:CGFloat, height: CGFloat) -> CGPoint {

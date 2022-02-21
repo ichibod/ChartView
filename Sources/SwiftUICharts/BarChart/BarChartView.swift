@@ -97,6 +97,7 @@ public struct BarChartView : View {
                 maxWidth: self.isFullWidth ? .infinity : self.formSize.width,
                 minHeight:self.formSize.height,
                 maxHeight:self.formSize.height)
+        #if !os(tvOS)
             .gesture(DragGesture()
                 .onChanged({ value in
                     self.touchLocation = value.location.x/self.formSize.width
@@ -124,6 +125,7 @@ public struct BarChartView : View {
         )
             .gesture(TapGesture()
         )
+        #endif
     }
     
     func getArrowOffset(touchLocation:CGFloat) -> Binding<CGFloat> {

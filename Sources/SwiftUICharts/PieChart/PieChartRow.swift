@@ -47,6 +47,7 @@ public struct PieChartRow : View {
                         .animation(Animation.spring())
                 }
             }
+            #if !os(tvOS)
             .gesture(DragGesture()
                         .onChanged({ value in
                             let rect = geometry.frame(in: .local)
@@ -61,6 +62,7 @@ public struct PieChartRow : View {
                         .onEnded({ value in
                             self.currentTouchedIndex = -1
                         }))
+            #endif
         }
     }
 }

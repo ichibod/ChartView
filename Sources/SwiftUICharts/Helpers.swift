@@ -137,6 +137,12 @@ public struct ChartForm {
     public static let large = CGSize(width:180, height:90)
     public static let extraLarge = CGSize(width:180, height:90)
     public static let detail = CGSize(width:180, height:160)
+    #elseif os(tvOS)
+    public static let small = CGSize(width:360, height:240)
+    public static let medium = CGSize(width:360, height:480)
+    public static let large = CGSize(width:720, height:240)
+    public static let extraLarge = CGSize(width:720, height:480)
+    public static let detail = CGSize(width:360, height:240)
     #else
     public static let small = CGSize(width:180, height:120)
     public static let medium = CGSize(width:180, height:240)

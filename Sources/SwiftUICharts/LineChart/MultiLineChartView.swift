@@ -128,6 +128,7 @@ public struct MultiLineChartView: View {
                 .offset(x: 0, y: 0)
             }.frame(width: self.formSize.width, height: self.formSize.height)
         }
+        #if !os(tvOS)
         .gesture(DragGesture()
         .onChanged({ value in
 //            self.touchLocation = value.location
@@ -138,6 +139,7 @@ public struct MultiLineChartView: View {
                 self.showIndicatorDot = false
             })
         )
+        #endif
     }
     
 //    @discardableResult func getClosestDataPoint(toPoint: CGPoint, width:CGFloat, height: CGFloat) -> CGPoint {
